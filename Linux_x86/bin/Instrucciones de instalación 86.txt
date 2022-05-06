@@ -1,0 +1,16 @@
+Adjunto dos *.zip con dos versiones del mismo agente para inventario de equipos con distribuciones Linux x86 y x64. Dentro de cada carpeta del zip veras dos ficheros:
+
+- panix.sh: script de invocacion del agente
+- Fichero .tar.gz: agente de inventario
+
+Para desplegar este agente es necesario llevar ambos ficheros al equipo a inventariar y dejar una tarea programada en el crontab del usuario root con la siguiente línea de invocación (antes de dejarla programada os recomendamos testear la invocación):
+
+/panix.sh -p=./Panix_01.07.00.00_Linux_x86.tar.gz -v=3 -s=http://inventariobs.bciseguros.cl/panet_inbox/xmlpost.aspx
+
+Ej: tarea a dejar programada en un Linux 86 bits
+
+/panix.sh -p=./Panix_01.07.00.00_Linux_x86.tar.gz -v=3 -s=http://inventariobs.bciseguros.cl/panet_inbox/xmlpost.aspx
+
+Es importante remarcar que la URL del parámetro -s tiene que ser accesible desde los equipos a inventariar ya que se trata de la URL de recepción de auditorías.
+
+¿Podrías probar ambos agentes e informarnos de los resultados?

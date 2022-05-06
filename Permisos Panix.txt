@@ -1,0 +1,44 @@
+Para que se generen auditorias válida con el agente deben estar disponible los comandos
+
+·         dmidecode -> /usr/sbin/dmidecode
+
+·         ifconfig -> /sbin/ifconfig 
+
+La recomendación siempre es que el usuario utilizado para la ejecución del agente sea root, aunque a veces por motivos de seguridad no se nos facilite.  El permiso de root se pide porque en la muchas distribuciones los usuarios estándares no los comandos pueden ejecutar estos comandos ifconfig  y dmidecode. SI se ejecuta el agente con un usuario normal, la auditoria se completa pero viene sin información en los nodos o atributos .
+
+ 
+
+·         /REQUEST/CONTENT/BIOS/SSN                       -- Sin contenido
+
+·         /REQUEST/CONTENT/BIOS/MSN                      -- Sin el nodo
+
+·         /REQUEST/CONTENT/BIOS/SKUNUMBER         -- Sin el nodo
+
+·         /REQUEST/CONTENT/CPUS/ID                         -- Sin contenido
+
+·         /REQUEST/CONTENT/DRIVES/SERIAL               -- Sin el nodo
+
+·         /REQUEST/CONTENT/HARDWARE/UUID          -- Sin el nodo
+
+·         /REQUEST/CONTENT/MEMORIES/CAPTION     -- Falta el nodo
+
+·         /REQUEST/CONTENT/PORTS                            -- Falta el nodo
+
+·         /REQUEST/CONTENT/SLOTS                             -- Falta el nodo
+
+·         /REQUEST/CONTENT/STORAGES/SERIALNUMBER -- Sin contenido
+
+·         /REQUEST/CONTENT/NETWORKS  --sale la información dependiente si en la distribución tenemos permisos de ejecución en /sbin/ifconfig
+
+ 
+
+Configuración del  /etc/sudoers para lanzar el agente con un usuario estándar con permisos de sudo.
+
+Suponga un entorno con un usuario standard SSAA. Configuramos el sudo para que este usuario pueda ejecutar con permisos elevados y sin que le pida password todos los comandos internos del agente
+
+ssaa ALL =NOPASSWD:/pathPanix/bin/panix.sh
+
+Este ALL indica que esa regla del sudoers se aplica en todos los host.
+Los comandos que se lancen desde dentro del agente también son invocados como root.
+No conocemos ninguna configuración de sudo que nos permitas ejecutar los comandos internos del agente como root exceptuando algunos otros.
+

@@ -1,0 +1,27 @@
+################################################################################
+# Product:		ProactivaNET
+# Application:	EspiralMS.ProactivaNET.PanixAgent
+#
+# File:			TestedDistros.txt
+# Description:	Listado de distribuciones en las que se ha probado este agente.
+				Este paquete contiene un Perl 2.12.1 compilado en Debian 4r9 64 bit con una Glibc 2.3.6
+# 				
+# Author:		equipossaa@espiralms.com
+#                 
+# Date: 		2020-03-26
+# Version:		01.01.00.00
+# 
+################################################################################
+
+Listado de Distribuciones:
+
+Debian 4      x86
+Debian 10.3   x86
+
+Ubuntu 8.04   x86
+Ubuntu 8.1	  x86
+Ubuntu 10.04  x86 (Nacar)
+
+CentOS 6.0    x86
+
+OpenSUSE 13.1 x86
